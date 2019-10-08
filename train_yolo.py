@@ -15,13 +15,14 @@ from torch.utils import data
 from tensorboardX import SummaryWriter
 
 from helpers.converters import *
+
 def train(cfg, writer, logger):
-	pass
+	
 
 if __name__=="__main__":
-	#cfg = os.path.join("configs/conf.yaml")
-	#logdir = os.path.join('runs', os.path.basename(args.config)[:-4] , str(run_id))
-	#writer = SummaryWriter(log_dir=logdir)
-	#print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
-	print(datetimebeautifier(datetime.now()))
-	#print(os.path)
+
+	cfg_path = os.path.join(os.getcwd(), "configs", "conf.yaml")
+	cfg = yaml.load(cfg_path)
+	logdir = os.path.join(os.getcwd(), 'runs', datetimebeautifier(datetime.now()))
+	writer = SummaryWriter(log_dir=logdir)
+	train(cfg, writer, logger)
